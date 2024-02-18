@@ -1,6 +1,6 @@
 import requests
 
-URL = input("Eenter Your Target :")
+URL = input("Eenter Your Target :")  #www.exmple.com                                         
 
 File = input("Eenter Your File :")
 
