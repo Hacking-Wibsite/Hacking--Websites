@@ -1,38 +1,38 @@
 import requests
 
-URL = input("Eenter Your Target :")  #www.exmple.com                                         
+import webbrowser
+
+URL = input("Eenter Your Target :")
 
 File = input("Eenter Your File :")
 
 replace = URL.replace(URL,"https://")
 
-try:
+x = open(File)
     
-    x = open(File)
-    
-    for i in x :
+for i in x :
         
-        r = requests.get(replace + URL + i)
+    r = requests.get(replace + URL + i)
         
-        v = replace + URL + i
-        
-        #print(r.status_code)
-        
-    if r.status_code == 200 :
-        
-        print("Conterol panle",r.status_code,":",v)
-        
-    if r.status_code == 400 :
-        
-        print("x Error",r.status_code,":",v)
+    v = replace + URL + i
+
+    t = [ v , r.status_code ]
         
     if r.status_code == 404 :
-        
-        print("x Error",r.status_code,":",v)
-        
-except:
-    
-    print("Internet Error")
 
+        print(t,':',"Error")
 
-    
+    if r.status_code == 400 :
+
+        print(t,':',"Error")
+
+    if r.status_code == 200 :
+
+        print(t,':',"Conterol panle")
+
+    if r.status_code == 200 :
+
+        web = webbrowser.open(URL)
+
+        print(web)
+
