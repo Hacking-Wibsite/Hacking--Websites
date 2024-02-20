@@ -13,26 +13,28 @@ x = open(File)
 for i in x :
         
     r = requests.get(replace + URL + i)
-        
+
     v = replace + URL + i
 
-    t = [ v , r.status_code ]
-        
     if r.status_code == 404 :
 
-        print(t,':',"Error")
+        print(v.splitlines(),"x Error 404")
+
+    if r.status_code == 200 :
+
+        print(v.splitlines(),"panle")
+        
+    if r.status_code == 200 :
+
+        webbrowser.open(URL+i)
 
     if r.status_code == 400 :
 
-        print(t,':',"Error")
+        print(v.splitlines(),"x Error 400")
 
-    if r.status_code == 200 :
 
-        print(t,':',"Conterol panle")
+    #print(v.splitlines(),
 
-    if r.status_code == 200 :
+    #r.status_code)
 
-        web = webbrowser.open(URL)
-
-        print(web)
 
