@@ -9,32 +9,30 @@ File = input("Eenter Your File :")
 replace = URL.replace(URL,"https://")
 
 x = open(File)
+
+counter = 1
     
 for i in x :
         
-    r = requests.get(replace + URL + i)
+    r = requests.get(replace + URL + i )
 
     v = replace + URL + i
 
+    #print(v.rstrip())
+
     if r.status_code == 404 :
 
-        print(v.splitlines(),"x Error 404")
-
-    if r.status_code == 200 :
-
-        print(v.splitlines(),"panle")
-        
-    if r.status_code == 200 :
-
-        webbrowser.open(URL+i)
+        print(str(counter)+" : "+v.rstrip(),"Error 404")
 
     if r.status_code == 400 :
 
-        print(v.splitlines(),"x Error 400")
+        print(str(counter)+" : "+v.rstrip(),"Error 404")
 
+    if r.status_code == 200 :
 
-    #print(v.splitlines(),
+        print(str(counter)+" : "+v.rstrip(),"panle 200")
 
-    #r.status_code)
+        webbrowser.open(URL+i)
 
+    counter += 1
 
