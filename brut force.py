@@ -4,35 +4,24 @@ import webbrowser
 
 URL = input("Eenter Your Target :")
 
-File = input("Eenter Your File :")
+Login = open(input("Eenter Your File :"),"r").read().split()
 
-replace = URL.replace(URL,"https://")
+for i in Login :
 
-x = open(File)
-
-counter = 1
-    
-for i in x :
-        
-    r = requests.get(replace + URL + i )
-
-    v = replace + URL + i
-
-    #print(v.rstrip())
+    r = requests.get(URL+i)
 
     if r.status_code == 404 :
 
-        print(str(counter)+" : "+v.rstrip(),"Error 404")
+        print(URL+i,"404 Error")
 
-    if r.status_code == 400 :
+    elif r.status_code == 200 :
 
-        print(str(counter)+" : "+v.rstrip(),"Error 404")
-
-    if r.status_code == 200 :
-
-        print(str(counter)+" : "+v.rstrip(),"panle 200")
+        print(URL+i,"200 Aadmin")
 
         webbrowser.open(URL+i)
+        
+    else:
+        
+        print("internet Error")
 
-    counter += 1
-
+        
