@@ -1,3 +1,4 @@
+
 import requests
 
 import webbrowser
@@ -6,22 +7,24 @@ URL = input("Eenter Your Target :")
 
 Login = open(input("Eenter Your File :"),"r").read().split()
 
-for i in Login :
+Counter = 1
 
-    r = requests.get(URL+i)
+for Password in Login :
+
+    r = requests.get(URL+Password)
 
     if r.status_code == 404 :
 
-        print(URL+i,"404 Error")
+        print(Counter,':',URL+Password,"404 Error")
 
     elif r.status_code == 200 :
 
-        print(URL+i,"200 Aadmin")
+        print(Counter,':',URL+Password,"200 Aadmin")
 
-        webbrowser.open(URL+i)
+        webbrowser.open(URL+Password)
         
-    else:
-        
+    else :
         print("internet Error")
-
+        
+    Counter += 1
         
