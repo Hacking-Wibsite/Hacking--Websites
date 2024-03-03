@@ -2,7 +2,7 @@
 
 1- تحميل برنامج python على حاسوب أو كمبيوتر
 
-2- تحميل مكتبة requests على pip install requests : cmd
+2- تحميل مكتبة requests على pip install requests : cmd and pip install webbrowser
 
 3- تحميل list password من على إنترنيت لي تخمين عليها في سكربت بلغة python أو على brut force || github
 
