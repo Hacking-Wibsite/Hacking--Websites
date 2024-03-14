@@ -1,30 +1,30 @@
+try :
+    import requests
 
-import requests
+    import webbrowser
+    
+    URL = input("Eenter Your Target :")
 
-import webbrowser
+    Login = open(input("Eenter Your File :"),"r").read().split()
 
-URL = input("Eenter Your Target :")
+    Counter = 1
+    
+    for Password in Login :
 
-Login = open(input("Eenter Your File :"),"r").read().split()
+        r = requests.get(URL+Password)
+            
+        if r.status_code == 404 :
 
-Counter = 1
+            print(Counter,':',URL+Password,"404 Error")
 
-for Password in Login :
+        elif r.status_code == 200 :
 
-    r = requests.get(URL+Password)
+            print(Counter,':',URL+Password,"200 Aadmin")
 
-    if r.status_code == 404 :
+            webbrowser.open(URL+Password)
+            
+        Counter += 1
+except :
+    print("internet Error")
+    
 
-        print(Counter,':',URL+Password,"404 Error")
-
-    elif r.status_code == 200 :
-
-        print(Counter,':',URL+Password,"200 Aadmin")
-
-        webbrowser.open(URL+Password)
-        
-    else :
-        print("internet Error")
-        
-    Counter += 1
-        
