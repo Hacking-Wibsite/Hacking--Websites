@@ -11,7 +11,7 @@ try :
     
     for Password in Login :
 
-        r = requests.get(URL+Password)
+        r = requests.get("https://"+URL+Password)
             
         if r.status_code == 404 :
 
@@ -25,6 +25,6 @@ try :
             
         Counter += 1
 except :
-    print("internet Error")
+    print("internet Error or Server Error")
     
 
