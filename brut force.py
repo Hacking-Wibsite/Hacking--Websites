@@ -2,7 +2,7 @@ try :
     import requests
 
     import webbrowser
-    
+
     URL = input("Eenter Your Target :")
 
     Login = open(input("Eenter Your File :"),"r").read().split()
@@ -11,7 +11,7 @@ try :
     
     for Password in Login :
 
-        r = requests.get("https://"+URL+Password)
+        r = requests.get(URL+Password)
             
         if r.status_code == 404 :
 
@@ -25,6 +25,4 @@ try :
             
         Counter += 1
 except :
-    print("internet Error or Server Error")
-    
-
+    print("Internet Error")
