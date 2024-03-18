@@ -5,7 +5,7 @@ try :
 
     URL = input("Eenter Your Target :")
 
-    Login = open(input("Eenter Your File :"),"r").read().split()
+    Login = open(input("Eenter Your File :")).read().split()
 
     Counter = 1
     
@@ -19,7 +19,13 @@ try :
 
         elif r.status_code == 200 :
 
-            print(Counter,':',URL+Password,"200 Aadmin")
+            print(Counter,':',URL+Password,"200 admin")
+
+            file = open("passwrod1.txt","a")
+            
+            file.write(URL+Password+"\n")
+            
+            file.close()
 
             webbrowser.open(URL+Password)
             
